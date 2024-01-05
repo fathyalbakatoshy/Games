@@ -1,0 +1,129 @@
+body {
+  background-color: #272B30;
+}
+
+header img {
+  max-height: 30vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+.navbar {
+  z-index: 3;
+}
+
+.navbar .container {
+  background-color: #3a497b;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+a.navbar-brand img {
+  width: 40px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  color: white;
+  font-size: 12.25px;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: #0099cc;
+}
+
+.card {
+  background-color: transparent;
+  color: white;
+  height: 360px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card .card-body {
+  padding: 10px 0 0 0;
+  overflow: hidden;
+}
+
+.card .card-body h3 {
+  font-size: 14px;
+}
+
+.card .card-body .free {
+  color: white;
+  font-size: 12px;
+  background-color: #0099cc;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 0;
+}
+
+.card .card-body p {
+  font-size: 14px;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+.card .card-footer h5 {
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.display-loading {
+  position: fixed;
+  background-color: red;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.display-loading .loading {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-top: 5px solid rgb(255, 255, 255);
+  border-left: 5px solid rgb(255, 255, 255);
+  animation: loading infinite normal;
+  animation-duration: 0.5s;
+  animation-delay: 0ms;
+  animation-direction: normal;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+.displayDetails {
+  position: fixed;
+  inset: 0;
+  background-color: #272B30;
+  z-index: 5;
+}
+
+.displayDetails .header {
+  margin-bottom: 20px;
+}
+
+
+#loading {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
