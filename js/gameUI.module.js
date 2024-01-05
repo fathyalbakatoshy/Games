@@ -1,4 +1,5 @@
 import { gameAPI } from "./gameAPI.module.js";
+import { detailsAPI } from "./gameDetails.module.js";
 
 export class UI {
   displayGame(list) {
@@ -31,7 +32,7 @@ export class UI {
     cards.forEach((card) => {
       card.addEventListener("click", (event) => {
         console.log(event.currentTarget.getAttribute("data-id"));
-        let gameApi = new gameAPI();
+        let gameApi = new detailsAPI();
         gameApi.getGameDetails(event.currentTarget.getAttribute("data-id"));
       });
     });
