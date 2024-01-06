@@ -10,14 +10,21 @@ export class detailsAPI {
   };
 
   async getGameDetails(id) {
-    let data = await fetch(
-      `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`,
-      this.options
-    );
-    let res = await data.json();
-    let ui = new UI();
-    ui.displayGamaDetails(res);
-    document.querySelector(".displayDetails").classList.replace("d-none", "d-flex");
-    ui.closs();
+    try {
+      document.querySelector(".loading").classList.replace("d-none", "d-flex");
+      let data = await fetch(
+        `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`,
+        this.options
+      );
+      console.log("data");
+      document.querySelector(".loading").classList.replace("d-flex", "d-none");
+      let res = await data.json();
+      let ui = new UI();
+      ui.displayGamaDetails(res);
+      document.querySelector(".displayDetails").classList.replace("d-none", "d-flex");
+      ui.closs();
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
