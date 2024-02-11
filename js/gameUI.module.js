@@ -1,7 +1,8 @@
-import { gameAPI } from "./gameAPI.module.js";
 import { detailsAPI } from "./gameDetails.module.js";
 
 export class UI {
+
+
   displayGame(list) {
     let cartone = "";
     for (let i = 0; i < list.length; i++) {
@@ -39,6 +40,7 @@ export class UI {
   }
 
   displayGamaDetails(list) {
+    document.querySelector("#displayGame").classList.add("d-none");
     let container = `
       <div class="col-md-5">
         <img src="${list.thumbnail}" class="w-100" alt="">
@@ -52,13 +54,21 @@ export class UI {
         <a href="${list.freetogame_profile_url}" class="btn btn-outline-warning text-white">Show Game</a>
       </div>
     `;
-    document.querySelector("#displayGameDetails").innerHTML = container;
-  }
+    let displayGameDetails = document.querySelector("#displayGameDetails");
+    displayGameDetails.innerHTML = container;
+    displayGameDetails.style.overflow = "auto";
+}
+
+
 
   closs() {
     let btn = document.querySelector("#btn");
     btn.addEventListener("click", () => {
+      document.querySelector("#displayGame").classList.remove("d-none")
       document.querySelector(".displayDetails").classList.replace("d-flex", "d-none");
     });
   }
+
+
+
 }

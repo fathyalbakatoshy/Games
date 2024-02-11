@@ -2,6 +2,7 @@ import { UI } from "./gameUI.module.js";
 
 export class gameAPI {
   constructor(nameGame = "mmorpg") {
+    document.querySelector(".loading").classList.replace("d-none", "d-flex");
     this.nameGame = nameGame;
     let links = document.querySelectorAll(".navbar ul li a");
     links.forEach((link) => {
@@ -17,6 +18,8 @@ export class gameAPI {
         link.classList.add("active");
       });
     });
+    document.querySelector(".loading").classList.replace("d-flex", "d-none");
+    this.closeNav()
   }
 
   options = {
@@ -40,5 +43,15 @@ export class gameAPI {
     } catch (error) {
       console.error("Error fetching games:", error);
     }
+  }
+
+  closeNav() {
+    this.navLinks = document.querySelectorAll('.nav-item');
+    this.menuToggle = document.getElementById('navbarSupportedContent');
+    this.bsCollapse = new bootstrap.Collapse(this.menuToggle, {toggle:false});
+
+    this.navLinks.forEach((l) => {
+      l.addEventListener('click', () => { this.bsCollapse.toggle(); });
+    });
   }
 }
